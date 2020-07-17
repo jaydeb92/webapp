@@ -16,7 +16,7 @@ public class CalamitiesDTO implements Serializable {
 	@Id
 	@Column(name = "C_ID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int cid;
+	private Integer cid;
 	@Column(name = "PLACE")
 	private String place;
 	@Column(name = "DATE")
@@ -28,21 +28,21 @@ public class CalamitiesDTO implements Serializable {
 	@Column(name = "AREA")
 	private String area;
 	@Column(name = "AVG_LOSS")
-	private long avgLoss;
+	private Long avgLoss;
 	@Column(name = "NO_OF_DEATHS")
-	private int noOfDeaths;
+	private Integer noOfDeaths;
 	@Column(name = "NO_OF_INJURED")
-	private int noOfInjured;
+	private Integer noOfInjured;
 
 	public CalamitiesDTO() {
 		System.out.println("created\t" + this.getClass().getSimpleName());
 	}
 
-	public int getCid() {
+	public Integer getCid() {
 		return cid;
 	}
 
-	public void setCid(int cid) {
+	public void setCid(Integer cid) {
 		this.cid = cid;
 	}
 
@@ -86,27 +86,27 @@ public class CalamitiesDTO implements Serializable {
 		this.area = area;
 	}
 
-	public long getAvgLoss() {
+	public Long getAvgLoss() {
 		return avgLoss;
 	}
 
-	public void setAvgLoss(long avgLoss) {
+	public void setAvgLoss(Long avgLoss) {
 		this.avgLoss = avgLoss;
 	}
 
-	public int getNoOfDeaths() {
+	public Integer getNoOfDeaths() {
 		return noOfDeaths;
 	}
 
-	public void setNoOfDeaths(int noOfDeaths) {
+	public void setNoOfDeaths(Integer noOfDeaths) {
 		this.noOfDeaths = noOfDeaths;
 	}
 
-	public int getNoOfInjured() {
+	public Integer getNoOfInjured() {
 		return noOfInjured;
 	}
 
-	public void setNoOfInjured(int noOfInjured) {
+	public void setNoOfInjured(Integer noOfInjured) {
 		this.noOfInjured = noOfInjured;
 	}
 
