@@ -35,21 +35,20 @@ public class CalamitiesController {
 		try {
 			System.out.println("invoked doSave method in CalamitiesController");
 			int i = service.createAndValidate(dto);
-			if (i==0) {
+			if (i == 0) {
 				System.out.println(dto.getCapturedBy());
 				model.addAttribute("message", "Info captured by: " + dto.getCapturedBy());
 				return "index";
 			} else {
+				model.addAttribute("message", "Some filled is missing..");
 				return "index";
 
 			}
-			
 
 		} catch (Exception e) {
 			System.err.println("Exception in doSave CalamitiesController" + e.getMessage());
 		}
 		return null;
-		
 
 	}
 

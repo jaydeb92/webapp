@@ -4,12 +4,12 @@
 	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
 	<session-factory>
+
+
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
 		
-		
-		 <property name="show_sql">true</property>
-		 <property name="format_sql">true</property>
-		
-		 <mapping class="com.xworkz.calamities.dto.CalamitiesDTO"/> 
-		
+		<mapping class="com.xworkz.calamities.dto.CalamitiesDTO" />
+
 	</session-factory>
 </hibernate-configuration>
