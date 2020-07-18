@@ -1,29 +1,40 @@
-package com.xworkz.calamities.dto;
+package com.xworkz.calamities.entity;
 
 import java.io.Serializable;
 import java.util.Date;
 
-public class CalamitiesDTO implements Serializable {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "calamities_details_table")
+public class CalamitiesEntity implements Serializable {
+	@Id
+	@Column(name = "C_ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer cid;
-
+	@Column(name = "PLACE")
 	private String place;
-
+	@Column(name = "DATE")
 	private Date date;
-
+	@Column(name = "CAPTURED_BY")
 	private String capturedBy;
-
+	@Column(name = "CALAMITY_TYPE")
 	private String calamityType;
-
+	@Column(name = "AREA")
 	private String area;
-
+	@Column(name = "AVG_LOSS")
 	private Long avgLoss;
-
+	@Column(name = "NO_OF_DEATHS")
 	private Integer noOfDeaths;
-
+	@Column(name = "NO_OF_INJURED")
 	private Integer noOfInjured;
 
-	public CalamitiesDTO() {
+	public CalamitiesEntity() {
 		System.out.println("created\t" + this.getClass().getSimpleName());
 	}
 
@@ -101,7 +112,7 @@ public class CalamitiesDTO implements Serializable {
 
 	@Override
 	public String toString() {
-		return "CalamitiesDTO [cid=" + cid + ", place=" + place + ", date=" + date + ", capturedBy=" + capturedBy
+		return "CalamitiesEntity [cid=" + cid + ", place=" + place + ", date=" + date + ", capturedBy=" + capturedBy
 				+ ", calamityType=" + calamityType + ", area=" + area + ", avgLoss=" + avgLoss + ", noOfDeaths="
 				+ noOfDeaths + ", noOfInjured=" + noOfInjured + "]";
 	}
