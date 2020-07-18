@@ -1,9 +1,9 @@
 package com.xworkz.calamities.dao;
 
-import com.xworkz.calamities.dto.CalamitiesDTO;
+import com.xworkz.calamities.entity.CalamitiesEntity;
 
 public interface CalamitiesDAO {
 
-	public void create(CalamitiesDTO dto);
+	public void create(CalamitiesEntity entity);
 
 }

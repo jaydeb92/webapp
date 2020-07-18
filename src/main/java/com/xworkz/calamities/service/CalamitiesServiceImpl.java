@@ -2,14 +2,17 @@ package com.xworkz.calamities.service;
 
 import java.util.Objects;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.xworkz.calamities.dao.CalamitiesDAO;
 import com.xworkz.calamities.dto.CalamitiesDTO;
+import com.xworkz.calamities.entity.CalamitiesEntity;
 
 @Component
 public class CalamitiesServiceImpl implements CalamitiesService {
+
 	@Autowired
 	private CalamitiesDAO dao;
 
@@ -30,27 +33,36 @@ public class CalamitiesServiceImpl implements CalamitiesService {
 
 				} else {
 					System.out.println("CalamitiesDTO place is null can't save");
+					valid = 1;
 				}
-				if (dto.getDate() != null) {
+				if (valid == 0 && dto.getDate() != null) {
 					System.out.println("CalamitiesDTO date not null can save");
 					valid = 0;
 
 				} else {
 					System.out.println("CalamitiesDTO date is null can't save");
+					valid = 1;
 				}
-				if (dto.getCalamityType() != null) {
+				if (valid == 0 && dto.getCalamityType() != null) {
 					System.out.println("CalamitiesDTO CalamityType not null can save");
 					valid = 0;
 
 				} else {
 					System.out.println("CalamitiesDTO CalamityType is null can't save");
+					valid = 1;
 				}
 				if (valid == 0) {
 					System.out.println("CalamitiesDTO is valid can save it..");
-					dao.create(dto);
+					System.out.println("creating CalamitiesEntity object");
+					CalamitiesEntity entity = new CalamitiesEntity();
+					System.out.println("copying data from CalamitiesDTO to CalamitiesEntity");
+					BeanUtils.copyProperties(dto, entity);
+					dao.create(entity);
+					valid = 0;
 
 				} else {
 					System.out.println("CalamitiesDTO not valid can't save it..");
+					valid = 1;
 				}
 
 			} else {
